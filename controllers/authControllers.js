@@ -60,7 +60,15 @@ Output:
 */
 
 const signup = async (req, res, next) => {
-  //Write your code here
+  try {
+    //Write your code here
+  } catch (err) {
+    res.status(500).json({
+      status: 'error',
+      message: 'Internal Server Error',
+      error: err.message,
+    });
+  }
 };
 
 /*
@@ -114,7 +122,15 @@ Output:
 }
  */
 const login = async (req, res, next) => {
-  //Write your code here
+  try {
+    //Write your code here
+  } catch (err) {
+    res.status(500).json({
+      status: 'error',
+      message: 'Internal Server Error',
+      error: err.message,
+    });
+  }
 };
 
 /*
@@ -152,7 +168,17 @@ Output:
 }
 */
 const logout = (req, res) => {
-  //Write your code here
+  const token = req.headers.authorization;
+
+  try {
+    //Write a code here
+  } catch (err) {
+    res.status(500).json({
+      status: 'error',
+      message: 'Internal Server Error',
+      error: err.message,
+    });
+  }
 };
 
 module.exports = { login, logout, signup, decodeToken };
